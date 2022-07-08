@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if request.user.is_authenticated %}
+<div class="container">
+    <div class="col-md-6">
+        <table class="table">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Users data</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">Username</th>
+                <td>{{current_user.username}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Name</th>
+                <td>{{current_user.first_name}}</td>
+            </tr>
+            <tr>
+                <th scope="row">User_id</th>
+                <td>{{current_user.td_user.tg_user_id}}</td>
+            </tr>
+            </tbody>
+        </table>
+        <a href="{{current_user.td_user.link}}"><button type="button" class="btn btn-primary">View user in Telegram</button></a>
+    </div>
+</div>
+{% endif %}
+{% endblock %}
